@@ -1,37 +1,32 @@
-
 /******************************************************************************
 
-2) Faça um programa que leia uma matriz 3x4 de inteiros, substitua seus elementos negativos por 0 e imprima a matriz original e a modificada.
+2. Crie um algoritmo que leia uma matriz 3x3 e calcule a soma dos valores das colunas da
+matriz.
+
 *******************************************************************************/
 import java.util.Scanner;
-public class Matriz2
-{
-     
-      public static void main(String[] args) {
-        int [][] matriz = new int [3][4];
-        
-        matriz[0][0] = 5;
-        matriz[0][1] = 3;
-        matriz[0][2] = 2;
-        matriz[0][3] = 2;
-        
-        matriz[1][0] = 4;
-        matriz[1][1] = 3;
-        matriz[1][2] = 6;
-        matriz[1][3] = 2;
-        
-        matriz[2][0] = 7;
-        matriz[2][1] = 8;
-        matriz[2][2] = 1;
-        matriz[2][3] = 2;
-        
-       
-        System.out.println("MATRIZ 3X4: ");
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " ");
-            }
-            System.out.println();
-            }
+public class Matriz2 {
+	public static void main(String[] args) {
+	    Scanner ler = new Scanner(System.in);
+	    int [][] matriz  = new int[3][3];
+	    int [] soma = new int[3];
+	    
+	    System.out.println("Digite os números da matriz: ");
+	    for (int i = 0; i < 3; i++) {
+	        for (int l = 0; l < 3; l++) {
+	            System.out.printf("Elemento [%d][%d]: ", i, l);
+                matriz[i][l] = ler.nextInt();
+	        }
+	    }
+	    
+	    for (int l = 0; l < 3; l++) {
+	        for (int i = 0; i < 3; i++) {
+	            soma[l] += matriz[i][l];
+	        }
+	    }
+	      System.out.println("Soma dos valores das colunas:");
+        for (int l = 0; l < 3; l++) {
+            System.out.printf("Coluna %d: %d%n", l + 1, soma[l]);
         }
-    }
+	}
+}
