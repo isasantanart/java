@@ -1,100 +1,68 @@
-
 /******************************************************************************
-3) Faça um programa que leia uma matriz [5,5]de inteiros e verifique se existem elementos repetidos.
-Mostrar a matriz e os números repetidos.
+
+3. Crie um algoritmo informe qual o maior e qual o menor elemento existente em uma matriz
+6x3.
+
 *******************************************************************************/
 import java.util.Scanner;
 public class Matriz3 {
-    public static void main(String[] args) {
-        int[][] matriz = new int[5][5];
+	public static void main(String[] args) {
+	    Scanner ler = new Scanner(System.in);
+	    int [][] matriz  = new int[6][3];
 
-        // Inicializar a matriz com valores
-        matriz[0][0] = 5;
+	    matriz[0][0] = 65;
         matriz[0][1] = 3;
         matriz[0][2] = 2;
-        matriz[0][3] = 2;
-        matriz[0][4] = 4;
-
-        matriz[1][0] = 4;
-        matriz[1][1] = 3;
-        matriz[1][2] = 6;
-        matriz[1][3] = 2;
-        matriz[1][4] = 4;
-
-        matriz[2][0] = 7;
-        matriz[2][1] = 8;
-        matriz[2][2] = 1;
-        matriz[2][3] = 2;
-        matriz[2][4] = 4;
-
-        matriz[3][0] = 7;
-        matriz[3][1] = 8;
-        matriz[3][2] = 1;
-        matriz[3][3] = 8;
-        matriz[3][4] = 4;
-
-        matriz[4][0] = 7;
-        matriz[4][1] = 8;
-        matriz[4][2] = 8;
-        matriz[4][3] = 2;
-        matriz[4][4] = 0;
-
-        // Mostrar a matriz
-        System.out.println("MATRIZ 5X5:");
+     
+        
+        matriz[1][0] = 67;
+        matriz[1][1] = 33;
+        matriz[1][2] = 62;
+      
+        
+        matriz[2][0] = 70;
+        matriz[2][1] = 85;
+        matriz[2][2] = 13;
+       
+        
+        matriz[3][0] = 55;
+        matriz[3][1] = 34;
+        matriz[3][2] = 28;
+        
+        
+        matriz[4][0] = 444;
+        matriz[4][1] = 324;
+        matriz[4][2] = 676;
+        
+        
+        matriz[5][0] = 73;
+        matriz[5][1] = 834;
+        matriz[5][2] = 13;
+       
+       
+       int maior = matriz[0][0];
+       int menor = matriz[0][0];
+        
+        
+       System.out.println("Números da matriz:");
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+                System.out.print(matriz[i][j] + "\t");
             }
             System.out.println();
         }
-
-        // Verificar elementos repetidos
-        int[] repetidos = new int[25]; // Armazena os números repetidos encontrados
-        int repetidosCount = 0;
-
-        // Verificar cada elemento da matriz
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                int valorAtual = matriz[i][j];
-                boolean encontrado = false;
-
-                // Verificar se o valor já foi registrado como repetido
-                for (int k = 0; k < repetidosCount; k++) {
-                    if (repetidos[k] == valorAtual) {
-                        encontrado = true;
-                        break;
-                    }
+        
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] > maior) {
+                    maior = matriz[i][j];
                 }
-
-                // Se não foi encontrado, contar quantas vezes aparece na matriz
-                if (!encontrado) {
-                    int ocorrencias = 0;
-                    for (int x = 0; x < 5; x++) {
-                        for (int y = 0; y < 5; y++) {
-                            if (matriz[x][y] == valorAtual) {
-                                ocorrencias++;
-                            }
-                        }
-                    }
-
-                    // Se houver mais de uma ocorrência, registra como repetido
-                    if (ocorrencias > 1) {
-                        repetidos[repetidosCount] = valorAtual;
-                        repetidosCount++;
-                    }
+                if (matriz[i][j] < menor) {
+                    menor = matriz[i][j];
                 }
             }
         }
-
-        // Mostrar números repetidos, se houver
-        if (repetidosCount == 0) {
-            System.out.println("\nNão há números repetidos na matriz.");
-        } else {
-            System.out.print("\nNúmeros repetidos: ");
-            for (int i = 0; i < repetidosCount; i++) {
-                System.out.print(repetidos[i] + " ");
-            }
-            System.out.println();
-        }
+        System.out.println("Maior número na matriz: " + maior);
+        System.out.println("Menor número na matriz: " + menor);
     }
 }
